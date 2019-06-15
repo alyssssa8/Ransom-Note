@@ -1,0 +1,20 @@
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+         if (ransomNote.size() == 0){
+             return true;
+         }
+      int myArray[256]={0};
+            for (int i  = 0; i < magazine.size(); i++){
+                  myArray[magazine[i]]++;
+            }
+         for (int i  = 0; i < ransomNote.size(); i++){
+                 
+             if(myArray[ransomNote[i]]<= 0){
+                 return false;
+             }
+             myArray[ransomNote[i]]--;
+            }
+       return true;
+    }
+};
